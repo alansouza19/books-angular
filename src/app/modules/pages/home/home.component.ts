@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IBooks } from 'src/app/models/books.interface';
 import { StatusBooks } from 'src/app/models/enums/StatusBooks.enum';
+import { BooksService } from 'src/app/services/books/books.service';
 
 
 @Component({
@@ -9,13 +11,22 @@ import { StatusBooks } from 'src/app/models/enums/StatusBooks.enum';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit{
+
+  books: IBooks[] = [];
+
+  constructor(
+    private readonly service: BooksService,
+    private readonly route: Router,
+  ){}
   ngOnInit(): void {
-    
+    this.service.listarBooks().subscribe({
+      next: lista => {
+        this.books = lista;
+      }
+    });
   }
-  books: IBooks[] = [
-    { title: 'Book 1', author: 'Author 1', status:StatusBooks.AVAILABLE  },
-    { title: 'Book 2', author: 'Author 2', status:StatusBooks.AVAILABLE  },
-    { title: 'Book 3', author: 'Author 3', status:StatusBooks.NOT_AVAILABLE  },
-    
-  ];
+
+  create(){
+    this.route.navigate(['/books'])
+  }
 }

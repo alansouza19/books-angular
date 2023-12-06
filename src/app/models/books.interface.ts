@@ -4,5 +4,5 @@ export interface IBooks{
     id?:number;
     title:string;
     author:string;
-    status:StatusBooks;
+    enumStatus:StatusBooks;
 }

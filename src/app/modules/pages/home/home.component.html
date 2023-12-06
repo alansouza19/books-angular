@@ -2,7 +2,7 @@
   <div class="card">
     <div class="alinhamento">
       <h1>Books</h1>
-      <button class="create-button">Create New</button>
+      <button class="create-button" (click)="create()">Create New</button>
       <div class="search-bar">
         <input type="text" placeholder="Search title" />
       </div>
@@ -18,7 +18,7 @@
           <tr *ngFor="let book of books; let i = index">
             <td>{{ book.title }}</td>
             <td>{{ book.author }}</td>
-            <td>{{ book.status }}</td>
+            <td>{{ book.enumStatus }}</td>
           </tr>
         </tbody>
       </table>
