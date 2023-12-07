@@ -22,8 +22,8 @@ export class BooksService {
 
   postBooks(book: IBooks): Observable<IBooks>{
     return this.http.post<IBooks>(`${BASE_URL}/salva-books`, book);
-
   }
+  
   updateBooks(book: IBooks): Observable<IBooks>{
     return this.http.put<IBooks>(`${BASE_URL}/atualiza-books`, book);
   }

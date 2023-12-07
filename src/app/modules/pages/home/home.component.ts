@@ -13,6 +13,7 @@ import { BooksService } from 'src/app/services/books/books.service';
 export class HomeComponent implements OnInit{
 
   books: IBooks[] = [];
+  enumStatus!: StatusBooks;
 
   constructor(
     private readonly service: BooksService,

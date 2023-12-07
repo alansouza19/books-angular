@@ -1,1 +1,33 @@
+<section>
+  <div class="container">
+    <div class="card">
+      <div class="alinhamento">
+        <div class="container mt-4">
+          <h2>Book Registration</h2>
+          <form [formGroup]="bookForm" (ngSubmit)="postBook()">
+            <mat-form-field appearance="fill">
+              <mat-label>Title</mat-label>
+              <input matInput formControlName="title" required="" />
+            </mat-form-field>
 
+            <mat-form-field appearance="fill">
+              <mat-label>Author</mat-label>
+              <input matInput formControlName="author" required="" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Status</mat-label>
+              <mat-select placeholder="Choose an option" formControlName="enumStatus">
+                <mat-option *ngFor="let status of statuslist" [value]="status.value">
+                  {{status.label}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <button type="submit" class="create-button">Registry</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

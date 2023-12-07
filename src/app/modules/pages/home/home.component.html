@@ -18,7 +18,7 @@
           <tr *ngFor="let book of books; let i = index">
             <td>{{ book.title }}</td>
             <td>{{ book.author }}</td>
-            <td>{{ book.enumStatus }}</td>
+            <td>{{ book.enumStatus == 'AVAILABLE' ? 'Disponível' : 'Indisponível' }}</td>
           </tr>
         </tbody>
       </table>
