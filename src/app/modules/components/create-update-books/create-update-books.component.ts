@@ -31,7 +31,7 @@ export class CreateUpdateBooksComponent {
   postBook() {
     this.service.postBooks(this.bookForm.value as IBooks).subscribe({
       next: book =>{
-        alert("Livro cadastrado com sucesso!" + book.title + book.id);
+        alert("Successfully registered book! " + "Id: " + book.id + ", Title: " + book.title);
         this.route.navigate(['/home']);
       }
     });
