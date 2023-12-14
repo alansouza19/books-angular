@@ -4,15 +4,15 @@
       <div class="alinhamento">
         <div class="container mt-4">
           <h2>Book Registration</h2>
-          <form [formGroup]="bookForm" (ngSubmit)="postBook()">
+          <form [formGroup]="bookForm" (ngSubmit)="submit()">
             <mat-form-field appearance="fill">
               <mat-label>Title</mat-label>
-              <input matInput formControlName="title" required="" />
+              <input matInput formControlName="title" required />
             </mat-form-field>
 
             <mat-form-field appearance="fill">
               <mat-label>Author</mat-label>
-              <input matInput formControlName="author" required="" />
+              <input matInput formControlName="author" required />
             </mat-form-field>
 
             <mat-form-field appearance="fill">
@@ -24,7 +24,7 @@
               </mat-select>
             </mat-form-field>
 
-            <button type="submit" class="create-button">Register</button>
+            <button type="submit" class="create-button">{{bookForm.get('id')?.value ? 'Update': 'Register'}}</button>
           </form>
         </div>
       </div>

@@ -16,6 +16,10 @@ export class BooksService {
     private readonly http: HttpClient
   ) { }
 
+  findById(id:number): Observable<IBooks>{
+    return this.http.get<IBooks>(`${BASE_URL}/busca-books/${id}`);
+  }
+
   listarBooks(): Observable<IBooks[]>{
     return this.http.get<IBooks[]>(`${BASE_URL}/busca-books`);
   }

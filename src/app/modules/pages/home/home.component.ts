@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit{
 
   books: IBooks[] = [];
   enumStatus!: StatusBooks;
+  book!: IBooks;
+ 
 
   constructor(
     private readonly service: BooksService,
@@ -27,7 +29,23 @@ export class HomeComponent implements OnInit{
     });
   }
 
-  create(){
-    this.route.navigate(['/books'])
+  registerBook(){
+    this.route.navigate(['/books']);
   }
+
+  editBook(id:number){
+    this.route.navigate(['/books'], {queryParams: {bookId: id}});
+  }
+
+  deleteBook(id: number){
+      this.service.deleteBooks(id).subscribe({
+        next: () => {
+          alert("Book deleted with success!");
+        },
+        error: erro =>{
+          alert('Erro ao deletar o livro: ' + erro);
+        }
+      });
+    } 
+  
 }
