@@ -2,7 +2,7 @@
   <div class="card">
     <div class="alinhamento">
       <h1>Books</h1>
-      <button class="create-button" (click)="create()">Create New</button>
+      <button class="create-button" (click)="registerBook()">Create New</button>
       <div class="search-bar">
         <input type="text" placeholder="Search title" />
       </div>
@@ -12,14 +12,26 @@
             <th scope="col">Title</th>
             <th scope="col">Author</th>
             <th scope="col">Status</th>
-            <th scope="col"></th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let book of books; let i = index">
             <td>{{ book.title }}</td>
             <td>{{ book.author }}</td>
-            <td>{{ book.enumStatus == 'AVAILABLE' ? 'Disponível' : 'Indisponível' }}</td>
+            <td>
+              {{
+                book.enumStatus == "AVAILABLE" ? "Disponível" : "Indisponível"
+              }}
+            </td>
+            <td>
+              <button class="create-button" (click)="editBook(book.id!)" title="Editar" class="btn btn-sm">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="create-button" (click)="deleteBook(book.id!)" title="Excluir" class="btn btn-sm">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
