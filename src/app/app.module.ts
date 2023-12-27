@@ -15,13 +15,15 @@ import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import { LoginComponent } from './modules/pages/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CreateUpdateBooksComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
